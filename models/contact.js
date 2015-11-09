@@ -15,7 +15,7 @@ var contactSchema = new mongoose.Schema({
         trim: true,
         required: 'Contact number is required'
     },
-    address: {
+    email: {
         type: String,
         default: '',
         trim: true,

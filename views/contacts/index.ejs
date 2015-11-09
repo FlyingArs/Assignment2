@@ -25,10 +25,18 @@
                         <%= contacts[i].number %>
                     </td>
                     <td>
-                        <%= contacts[i].address %>
+                        <%= contacts[i].email %>
                     </td>
-                    <td>Update</td>
-                    <td>Delete</td>
+                    <td>
+                        <a href="/contacts/update/<%= contacts[i]._id %>" title="Update">
+                            <button type="button" class="btn btn-primary">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/contacts/delete/<%= contacts[i]._id %>" title="Delete" onclick="return confirm('Do you really want to delete this?');">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
                 </tr>
 
                 <% } %>
