@@ -20,13 +20,13 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FlyingArs/assignment1.git"
+    "url": "git+https://github.com/FlyingArs/assignment2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FlyingArs/assignment1/issues"
+    "url": "https://github.com/FlyingArs/assignment2/issues"
   },
-  "homepage": "https://github.com/FlyingArs/assignment1#readme",
+  "homepage": "https://github.com/FlyingArs/assignment2#readme",
   "description": ""
 }

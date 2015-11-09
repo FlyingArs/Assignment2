@@ -1,0 +1,43 @@
+<%- include ../partials/header.ejs %>
+
+    <main class="container">
+        <h1>Business Contacts List</h1>
+
+        <a href="#">Add a New Article</a>
+
+        <table class="table table-stripped">
+            <tr>
+                <th>Contact Name</th>
+                <th>Contact Number</th>
+                <th>Email Address</th>
+                <th>Update</th>
+                <th>Delete</th>
+
+            </tr>
+
+
+            <% for (var i = 0; i < contacts.length; i++ ){ %>
+                <tr>
+                    <td>
+                        <%= contacts[i].name %>
+                    </td>
+                    <td>
+                        <%= contacts[i].number %>
+                    </td>
+                    <td>
+                        <%= contacts[i].address %>
+                    </td>
+                    <td>Update</td>
+                    <td>Delete</td>
+                </tr>
+
+                <% } %>
+
+        </table>
+
+
+    </main>
+
+    </body>
+
+    </html>

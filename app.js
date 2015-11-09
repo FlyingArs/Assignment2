@@ -13,10 +13,29 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//create a mongoose object
+var mongoose = require('mongoose');
+
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//link the contacts handler
+var contacts = require('./routes/contacts');
 
 var app = express();
+
+//connect to the mongolab online database
+mongoose.connect('mongodb://MongoYu:Mongo214@ds051858.mongolab.com:51858/week5');
+
+//create a connection object
+var db = mongoose.connection;
+
+//print error if connection failed. send a message if connection succeded
+db.on('error', console.error.bind(console, 'Connection Error: '));
+db.once('open', function(callback){
+    console.log('Conncected to mongodb');
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +52,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+//use the contacts handler
+app.use('/contacts', contacts);
 
 //delcare the use of public folder
 //app.use(express.static(__dirname + '/public'));
