@@ -16,6 +16,11 @@ var bodyParser = require('body-parser');
 //create a mongoose object
 var mongoose = require('mongoose');
 
+//additional authentication
+var session = require('express-session');
+var flash = require('connect-flash');
+var passport = require('passport');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,6 +28,9 @@ var users = require('./routes/users');
 var contacts = require('./routes/contacts');
 
 var app = express();
+
+//connect to the passport strategy file
+require('./config/passport')(passport);
 
 //connect to the mongolab online database
 mongoose.connect('mongodb://MongoYu:Mongo214@ds051858.mongolab.com:51858/week5');
@@ -54,6 +62,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 //use the contacts handler
 app.use('/contacts', contacts);
+
+//use the seeion
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+
+//initialize flash and passport
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //delcare the use of public folder
 //app.use(express.static(__dirname + '/public'));
@@ -112,5 +133,8 @@ app.get('/contact', function (req, res) {
     res.send('contact');
 });
 
+app.get('/login', function (req, res){
+        res.send('contact');
+        });
 
 module.exports = app;

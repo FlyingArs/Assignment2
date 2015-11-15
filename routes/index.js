@@ -10,6 +10,14 @@
 var express = require('express');
 var router = express.Router();
 
+//create passport object
+var passport = require('passport');
+
+//create a moongoose object and make refrence to the login model
+var mongoose = require('mongoose');
+var User = require('../models/user');
+
+
 //create a nodemailer object
 var nodemailer = require('nodemailer');
 
@@ -49,6 +57,13 @@ router.get('/contact', function (req, res, next) {
     });
 });
 
+/*GET Login page */
+router.get('/login', function (req, res, next) {
+    res.render('login', {
+        title: 'Login'
+    });
+});
+
 /* POST contact page: 
 using nodemailer to send email when user hit the "submit" button */
 
@@ -61,7 +76,7 @@ var transporter = nodemailer.createTransport("SMTP", {
     }
 });
 
-//create the POST method
+/* POST post methd for contact page */
 router.post('/contact', function (req, res) {
 
     //specify the mail option   
@@ -88,5 +103,15 @@ router.post('/contact', function (req, res) {
     });
 
 });
+
+/* POST process the login request */
+router.post('/login', passport.authenticate('local-login', {
+    successRedirect: '/contacts',
+    failureRedirect: '/login',
+    failureFlash: 'true'
+}));
+
+
+
 
 module.exports = router;
