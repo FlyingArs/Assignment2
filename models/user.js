@@ -1,7 +1,7 @@
 /*
  * File Name: user.js
  * Author's Name: David Yu 200286902
- * Website Name:donaldrich.heroku.com
+ * Website Name:http://tomassignment3.azurewebsites.net/
  * File Desciption: this is the schema for the MongoDB user table.
  */
 //import mongoose and bcrypt

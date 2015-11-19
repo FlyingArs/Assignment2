@@ -1,7 +1,7 @@
 /*
  * File Name: index.js
  * Author's Name: David Yu 200286902
- * Website Name:donaldrich.heroku.com
+ * Website Name:http://tomassignment3.azurewebsites.net/
  * File Desciption: the handler that renders all the pages handle all the pages and send emails.
  * It also renders registration and login pages. 
  */

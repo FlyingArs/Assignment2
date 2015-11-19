@@ -1,7 +1,7 @@
 /*
  * File Name: users.js
  * Author's Name: David Yu 200286902
- * Website Name:donaldrich.heroku.com
+ * Website Name:http://tomassignment3.azurewebsites.net/
  * File Desciption: the handler that renders all the user registration and editing functions 
  */
 var express = require('express');

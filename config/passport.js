@@ -1,7 +1,7 @@
 /*
  * File Name: contact.js
  * Author's Name: David Yu 200286902
- * Website Name:donaldrich.heroku.com
+ * Website Name:http://tomassignment3.azurewebsites.net/
  * File Desciption: this is the passport strategy.
  */
 // add a reference to the passport strategy
