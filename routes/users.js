@@ -1,3 +1,9 @@
+/*
+ * File Name: users.js
+ * Author's Name: David Yu 200286902
+ * Website Name:donaldrich.heroku.com
+ * File Desciption: the handler that renders all the user registration and editing functions 
+ */
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
@@ -14,7 +20,7 @@ function requireAuth(req, res, next){
   next();
 }
 
-/* Render Users main page. */
+/* GET Render Users registration page. */
 router.get('/', requireAuth, function (req, res, next) {
     User.find(function (err, users) {
         if (err) {
@@ -31,7 +37,7 @@ router.get('/', requireAuth, function (req, res, next) {
     });
 });
 
-/* Render the Add Users Page */
+/* GET Render the Add Users Page */
 router.get('/add', requireAuth, function (req, res, next) {
     res.render('users/add', {
         title: 'Users',
@@ -39,7 +45,7 @@ router.get('/add', requireAuth, function (req, res, next) {
     });
 });
 
-/* process the submission of a new user */
+/* POST process new user registration */
 router.post('/add', requireAuth, function (req, res, next) {
     var user = new User(req.body);
     var hashedPassword = user.generateHash(user.password);
@@ -60,7 +66,7 @@ router.post('/add', requireAuth, function (req, res, next) {
     });
 });
 
-/* Render the User Edit Page */
+/* GET Render the User Edit Page */
 router.get('/:id', requireAuth, function (req, res, next) {
     // create an id variable
     var id = req.params.id;
@@ -81,7 +87,7 @@ router.get('/:id', requireAuth, function (req, res, next) {
     });
 });
 
-/* process the edit form submission */
+/* POST process the edit form submission */
 router.post('/:id', requireAuth, function (req, res, next) {
     var id = req.params.id;
     var user = new User(req.body);
@@ -101,7 +107,7 @@ router.post('/:id', requireAuth, function (req, res, next) {
     });
 });
 
-/* run delete on the selected user */
+/* GET run delete on the selected user */
 router.get('/delete/:id', requireAuth, function (req, res, next) {
     var id = req.params.id;
     User.remove({ _id: id }, function (err) {

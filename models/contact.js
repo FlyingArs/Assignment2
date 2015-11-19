@@ -1,4 +1,11 @@
-﻿//require the moongose object
+/*
+ * File Name: contact.js
+ * Author's Name: David Yu 200286902
+ * Website Name:donaldrich.heroku.com
+ * File Desciption: this is the schema for the MongoDB contact table.
+ */
+
+//require the moongose object
 var mongoose = require('mongoose');
 
 //create a schema for the the business contact list

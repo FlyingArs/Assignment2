@@ -3,6 +3,7 @@
  * Author's Name: David Yu 200286902
  * Website Name:donaldrich.heroku.com
  * File Desciption: the handler that renders all the pages handle all the pages and send emails.
+ * It also renders registration and login pages. 
  */
 
 
@@ -91,7 +92,7 @@ router.post('/contact', function (req, res) {
 });
 
 
-/* start here */
+/* Login and Registration Pages */
 
 /* Render Login page. */
 router.get('/login', function (req, res, next) {

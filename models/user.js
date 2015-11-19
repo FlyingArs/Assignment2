@@ -1,3 +1,9 @@
+/*
+ * File Name: user.js
+ * Author's Name: David Yu 200286902
+ * Website Name:donaldrich.heroku.com
+ * File Desciption: this is the schema for the MongoDB user table.
+ */
 //import mongoose and bcrypt
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');

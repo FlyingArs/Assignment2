@@ -1,3 +1,4 @@
+<%# File Name: index.ejs * Author's Name: David Yu 200286902 * Website Name:donaldrich.heroku.com * File Desciption: this is the user administration page %>
 <% include ../partials/header.ejs %>
 
 <main class="container">
@@ -11,7 +12,7 @@
             <table class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>User</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Date Created</th>
                         <th>Date Updated</th>
@@ -22,7 +23,7 @@
                 <% for (var i = 0; i < users.length; i++) { %>
                 <tr>
                     <td>
-                        <%= users[i].displayName %>
+                        <%= users[i].username %>
                     </td>
                     <td>
                         <%= users[i].email %>
@@ -38,10 +39,12 @@
                         <%= dateString %>
                     </td>
                     <td>
-                        <a href="/users/<%= users[i]._id %>" title="Edit" class="btn btn-primary">
+                        <a href="/users/<%= users[i]._id %>" title="Edit" >
+                            <button type="button" class="btn btn-primary">Edit</button>
                             <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <a href="/users/delete/<%= users[i]._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" class="btn btn-danger">
+                        <a href="/users/delete/<%= users[i]._id %>" title="Delete" onclick="return confirm('Are you sure you want to delete this?');" >
+                            <buton type="button" class="btn btn-danger">Delete</buton>
                             <i class="fa fa-trash-o"></i>
                         </a>
                     </td>   
